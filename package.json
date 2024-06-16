@@ -7,6 +7,7 @@
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
     "seed:init": "node scripts/init-data.js",
+    "test": "jest -i tests/ --verbose --runInBand --forceExit",
     "e2e": "NODE_ENV=e2e jest --verbose --runInBand --forceExit",
     "e2e:ci": "NODE_ENV=ci jest --verbose --runInBand --forceExit",
     "lint": "eslint"
@@ -33,6 +34,7 @@
     "express": "4.18.1",
     "joi": "17.6.0",
     "joi-objectid": "4.0.2",
+    "moment": "^2.30.1",
     "mongoose": "^6.4.3",
     "timezone-support": "2.0.2"
   },
