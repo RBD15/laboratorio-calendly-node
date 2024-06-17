@@ -5,12 +5,11 @@ const availabilityService = require('../services/availability.service');
 const availabilityRouter = express.Router();
 const scheduleService = new ScheduleService();
 
-
 availabilityRouter.post('/', async (req, res, next) => {
   try {
-    const {scheduleId} = req.body;
+    const {scheduleId,date: requestDate} = req.body;
     const schedule = await scheduleService.getById(scheduleId)
-    const intervalSlots = await availabilityService.getSlotsAvailable(schedule)
+    const intervalSlots = await availabilityService.getSlotsAvailable(schedule,requestDate)
     res.json({error:false,data:intervalSlots})
   } catch (error) {
     next(error);

@@ -46,9 +46,10 @@ describe('Test availability Services',() => {
         "user": "666630f90279a571565e4a5c",
         "__v": 0
       }
+    const requestDate = "2024-06-10"
 
-    const slots = await availabilityService.getSlotsAvailable(schedule)
-    expect(slots[0]).toEqual([{startDate:"09:00",endDate:"09:15",status:"on"},{startDate:'09:20',endDate:'09:35',status:'on'},{startDate:'09:40',endDate:'09:55',status:'on'},{startDate:'10:00',endDate:'10:15',status:'on'}]);
+    const slots = await availabilityService.getSlotsAvailable(schedule,requestDate)
+    expect(slots[0]).toEqual([{startDate:"2024-06-10T09:00:00.000Z",endDate:"2024-06-10T09:15:00.000Z",status:"on"},{startDate:"2024-06-10T09:20:00.000Z",endDate:"2024-06-10T09:35:00.000Z",status:"on"},{startDate:"2024-06-10T09:40:00.000Z",endDate:"2024-06-10T09:55:00.000Z",status:"on"},{startDate:"2024-06-10T10:00:00.000Z",endDate:"2024-06-10T10:15:00.000Z",status:"on"}]);
     // expect(slots[1]).toEqual(['20:00 - 20:15', '20:20 - 20:35', '20:40 - 20:55'])
   })
 
