@@ -1,3 +1,4 @@
+const boom = require('@hapi/boom');
 const Schedule = require('./../database/entities/schedule.entity');
 
 class ScheduleService {
@@ -15,7 +16,7 @@ class ScheduleService {
 
   getByUser(userId) {
     try{
-    return Schedule.find({ user: userId });
+      return Schedule.find({ user: userId });
     } catch (error) {
       throw new Error('Schedule wasnt found it')
     }
@@ -24,9 +25,11 @@ class ScheduleService {
   async getById(id) {
     try {
       const schedule = await Schedule.findById(id).populate('user');
+      if(!schedule)
+        throw new Error('Shedule wanst found it')
       return schedule
     } catch (error) {
-      throw new Error('User wasnt found it')
+      throw boom.notFound('Shedule wanst found it')
     }
   }
 

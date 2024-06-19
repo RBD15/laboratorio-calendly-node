@@ -35,6 +35,7 @@
     "joi": "17.6.0",
     "joi-objectid": "4.0.2",
     "moment": "^2.30.1",
+    "moment-timezone": "^0.5.45",
     "mongoose": "^6.4.3",
     "timezone-support": "2.0.2"
   },
