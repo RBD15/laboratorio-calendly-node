@@ -10,7 +10,7 @@ availabilityRouter.post('/',validatorHandler(getAvailabilityDTO,'body'), async (
   try {
     const {scheduleId,date:requestDate,timezone} = req.body
     const schedule = await scheduleService.getById(scheduleId)
-    const intervalSlots = await availabilityService.getSlotsAvailable(schedule,requestDate)
+    const intervalSlots = await availabilityService.getSlotsAvailable(schedule,requestDate,timezone)
     res.json({error:false,data:intervalSlots})
   } catch (error) {
     next(error);
